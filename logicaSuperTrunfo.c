@@ -14,8 +14,10 @@ int numero;
 float densidadepop;
 float pibpercapita;
 int opcao; // criei uma variavel opção para criar o menu principal.
-int atributo;
-int resultadogeral;
+int atributo, atributo2;
+int resultado1, resultado2;
+int resultadogeral, soma1, soma2;
+
 
 	printf("Menu principal\n");
 	printf("1. Iniciar Jogo \n");
@@ -112,142 +114,155 @@ printf ("Digite seu Estado:");
     
     //comparando as cartas
     
-    	printf("\n---Escolha qual atributo a comparar!---\n");
+    	printf("\n---Escolha o Primeiro atributo a comparar!---\n");
 	printf("1. População:\n");
 	printf("2. Área:\n");
 	printf("3. PIB\n");
 	printf("4. Numero pontos turísticos\n");
 	printf("5. Densidade Populacional\n");
 	printf("6. Pib percapita\n");
-	printf("Digite um numero");
+	printf("Digite um numero: ");
 	scanf("%d", &atributo); // criei uma variavel atributo para poder criar essa estrutura switch
 	
+	soma1 = resultado1;
+soma2 = resultado2;
 	switch (atributo){
-		case 1:
-		if (populacao > populacao2) {
-		printf("Cidade: %s vs %s.\n", cidade, cidade2);
-    	printf("População: %s %d pontos vs %s %d pontos!\n",cidade, populacao, cidade2, populacao2);
-    	printf("População: %s venceu!\n", cidade);
-    	
-    	
-	  } else if (populacao < populacao2) {
-		
-		printf("Cidade: %s vs %s.\n", cidade2, cidade);
-    	printf("População: %s %d pontos vs %s %d pontos!\n",cidade2, populacao2, cidade, populacao);
-    	printf("População: %s Venceu!\n", cidade2);
-		
-	  } else {
-	  	printf("Houve um empate \n");
-	  }
-	   break;
+	case 1:
+	 printf("Você escolheu o atributo População!\n");
+	    resultado1 = populacao > populacao2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+	    printf("A População de %s é de %d e a de %s é de %d!\n", cidade, populacao, cidade2, populacao2);
+	  break;
 	   
 	  
 
-   case 2:
-    
-if (area > area2) {
-		printf("Cidade: %s vs %s.\n", cidade, cidade2);
-    	printf("Área em km²: %s %.2f pontos vs %s %.2f pontos!\n",cidade, area, cidade2, area2);
-    	printf("Área em km²: %s venceu!\n", cidade);
-    	
-    	
-	  } else if (area < area2) {
-		
-		printf("Cidade: %s vs %s.\n", cidade2, cidade);
-    	printf("Área em km²: %s %.2f pontos vs %s %.2f pontos!\n",cidade2, area2, cidade, area);
-    	printf("Área em km²: %s venceu!\n", cidade2);
-		
-	  } else {
-	  	printf("Houve um empate \n");
-	  }
+    case 2:
+    printf("Você escolheu o atributo Area!\n");
+	  resultado1 =  area > area2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+    printf("A area de %s é de %.2f e a de %s é de %.2f!\n", cidade, area, cidade2, area2);
 	  break;
 	  
 
 	case 3:
 	
-	if (pib > pib2) {
-			printf("Cidade: %s vs %s.\n", cidade, cidade2);
-    	printf("PIB: %s %.2f pontos vs %s %.2f  pontos!\n",cidade, pib, cidade2, pib2);
-    	printf("PIB: %s venceu!\n", cidade);
-    	
-    	
-	  } else if (pib < pib2) {
-		
-		printf("Cidade: %s vs %s.\n", cidade2, cidade);
-    	printf("PIB: %s %.2f pontos vs %s %.2f  pontos!\n",cidade2, pib2, cidade, pib);
-    	printf("PIB: %s venceu!\n", cidade2);
-		
-	  } else {
-	  	printf("Houve um empate \n");
-	  }
+     printf("Você escolheu o atributo Pib!\n");
+	   resultado1 = pib > pib2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+	    printf("O Pib de %s é de %.2f e a de %s é de %.2f!\n", cidade, pib, cidade2, pib2);
 	  break;
 	
 	case 4:
 		
-	if (numero > numero2) {
-		printf("Cidade: %s vs %s.\n", cidade, cidade2);
-    	printf("Numero pontos turisticos: %s %d pontos vs %s %d pontos!\n",cidade, numero, cidade2, numero2);
-    	printf("Numero pontos turisticos: %s venceu!\n", cidade);
-    	
-    	
-	  } else if (area < area2) {
-		
-		printf("Cidade: %s vs %s.\n", area2, area);
-    	printf("Numero pontos turisticos: %s %d pontos vs %s %d pontos!\n",cidade2, numero2, cidade, numero);
-    	printf("Numero pontos turisticos: %s venceu!\n", cidade2);
-		
-	  } else {
-	  	printf("Houve um empate \n");
-	  }
+	printf("Você escolheu o atributo Número Pontos turisticos!\n");
+	    resultado1 = numero > numero2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+	    printf("O Número de pontos turisticos de %s é de %d e a de %s é de %d!\n", cidade, numero, cidade2, numero2);
 	  break;
 	  
 	case 5:
 		
-    if (densidadepop < densidadepop2) {
-    	 densidadepop2 = (int) populacao / area;
-    	printf("Cidade: %s vs %s.\n", cidade, cidade2);
-    	printf("Densidade Populacional: %s %.2f pontos vs %s %.2f pontos!\n",cidade,densidadepop, cidade2, densidadepop2);
-    	printf("Densidade Populacional: %s venceu!\n", cidade);
-    	
-    	
-	  } else if (densidadepop > densidadepop2) {
-		 densidadepop2 = (int) populacao2 / area2;
-		printf("Cidade: %s vs %s.\n", area2, area);
-    	printf("Densidade Populacional: %s %.2f pontos vs %s %.2f pontos!\n",cidade2, densidadepop2, cidade, densidadepop);
-    	printf("Densidade Populacional: %s venceu!\n", cidade2);
-		
-	  } else {
-	  	printf("Houve um empate \n");
-	  }
+    printf("Você escolheu o atributo Densidade Populacional!\n");
+	   resultado1 = densidadepop < densidadepop2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+	    printf("A densidade Populacional de %s é de %.2f e a de %s é de %.2f!\n", cidade, densidadepop, cidade2, densidadepop2);
 	  break;
 	  
 	case 6:
 		
-    if (pibpercapita > pibpercapita2) {
-    	pibpercapita = (int) pib / populacao;
-    	printf("Cidade: %s vs %s.\n", cidade, cidade2);
-    	printf("Pib percapita: %s %.2f pontos vs %s %.2f pontos!\n",cidade, pibpercapita, cidade2, pibpercapita2);
-    	printf("Pib percapita: %s venceu!\n", cidade);
-    	
-    	
-	  } else if (densidadepop > densidadepop2) {
-		pibpercapita2 = (int) pib2 / populacao2;
-		printf("Cidade: %s vs %s.\n", area2, area);
-    	printf("Pib percapita: %s %.2f pontos vs %s %.2f pontos!\n",cidade2, pibpercapita2, cidade, pibpercapita);
-    	printf("Pib percapita: %s venceu!\n", cidade2);
-		
-	  } else {
-	  	printf("Houve um empate \n");
-	  }
+    printf("Você escolheu o atributo Pib Percapita!\n");
+	    resultado1 = pibpercapita > pibpercapita2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+	    printf("O Pib percapita de %s é de %.2f e a de %s é de %.2f!\n", cidade, pibpercapita, cidade2, pibpercapita2);
 	  break;
 		
 		default:
 			printf("Opção invalida\n");
-			break;
+	  break;
 	}
+	
+	printf("\n---Escolha o Segundo atributo a comparar!---\n");
+	printf("1. População:\n");
+	printf("2. Área:\n");
+	printf("3. PIB\n");
+	printf("4. Numero pontos turísticos\n");
+	printf("5. Densidade Populacional\n");
+	printf("6. Pib percapita\n");
+	printf("Digite um numero: ");
+	scanf("%d", &atributo2);
+ 
+  if (atributo == atributo2)
+  {
+  	printf("Você escolheu o mesmo atributo!\n");
+  }
+	switch (atributo2){
+		case 1:
+	    printf("Você escolheu o atributo População!\n");
+	    resultado2 =  populacao > populacao2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+	    printf("A População de %s é de %d e a de %s é de %d!\n", cidade, populacao, cidade2, populacao2);
+	   break;
+	   
+	  
 
+   case 2:
+    printf("Você escolheu o atributo Area!\n");
+	   resultado2 =  area > area2 ? 1 : 0;// essa atribuicao de valor tem alguma coisa errada.
+       printf("A area de %s é de %.2f e a de %s é de %.2f!\n", cidade, area, cidade2, area2);
+	  break;
+	  
 
-		   // Impressão primeira carta
+	case 3:
+	
+     printf("Você escolheu o atributo Pib!\n");
+	    resultado2 = pib > pib2 ? 1 : 0; // essa atribuicao de valor tem alguma coisa errada.
+	    printf("O Pib de %s é de %.2f e a de %s é de %.2f!\n", cidade, pib, cidade2, pib2);
+	  break;
+	
+	case 4:
+		
+	printf("Você escolheu o atributo Número Pontos turisticos!\n");
+	    resultado2 =  numero > numero2 ? 1 : 0; // essa atribuicao de valor tem alguma coisa errada.
+	    printf("O Número de pontos turisticos de %s é de %d e a de %s é de %d!\n", cidade, numero, cidade2, numero2);
+	  break;
+	  
+	case 5:
+		
+    printf("Você escolheu o atributo Densidade Populacional!\n");
+	    resultado2 = densidadepop < densidadepop2 ? 1 : 0; // essa atribuicao de valor tem alguma coisa errada.
+	    printf("A densidade Populacional de %s é de %f e a de %s é de %f!\n", cidade, densidadepop, cidade2, densidadepop2);
+	  break;
+	  
+	case 6:
+		
+    printf("Você escolheu o atributo Pib Percapita!\n");
+	   resultado2 = pibpercapita > pibpercapita2 ? 1 : 0;
+	    printf("O Pib percapita de %s é de %f e a de %s é de %f!\n", cidade, pibpercapita, cidade2, pibpercapita2);
+	  break;
+		
+		default:
+			printf("Opção invalida\n");
+	  break;
+	  
+	 
+}
+// tem alguma parada que eu to fazendo errado. nao consegui atribuir o valor que foi digitado
+// no nivel aventureiro foi tranquilo, aqui nesse sistema de operador ternario, tem alguma coisa q eu nao entendi ainda
+
+     	
+	    if (resultado1 && resultado2){
+	    	printf("A cidade de %s venceu com %d pontos!\n", cidade, soma1);
+		} else if (resultado1 != resultado2){
+			printf("Empate!\n");
+		} else {
+			printf("A cidade de %s venceu com %d pontos!\n", cidade2, soma2);
+		}
+	
+	
+	
+	
+	    printf("\n---Imprimir dados das cartas?---\n");
+	    printf("7. Sim\n");
+	    printf("8. Não\n");
+	    printf("Digite um número: ");
+	    scanf("%d", &resultadogeral);
+	    
+	switch (resultadogeral) {
+		
+	case 7:	   // Impressão primeira carta
     printf("\n--- Dados da primeira carta ---\n");
     printf("Estado: %s.\n.", estado);
     printf("Código: %s.\n", codigo);
@@ -273,13 +288,21 @@ if (area > area2) {
     printf("Nº de Pontos Turísticos: %d.\n", numero2);
     printf("Densidade populacional: %f\n.", densidadepop2);
     printf("Pib Percapita: %f\n.", pibpercapita2);
- 
+    
+    break;
+    
+    case 8: 
+    printf("Até Breve\n");
+    break;
+}
+break;
 case 2:
 	printf("Regras de Comparação: A regra geral é: vence a carta com o maior valor no atributo escolhido. Porém, para a Densidade Demográfica, a regra inverte: vence a carta com o menor valor.\n");
 	break;
 
 default:
 	printf("Opção invalida!\n");
+	
 }
  return 0;
  
